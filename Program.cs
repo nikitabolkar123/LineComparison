@@ -1,48 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
-namespace UC2_CheckEquality
+namespace UC3_CompareLines
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To The Line Comparsion Problems");
+            Console.WriteLine("Welcome to The Line Comparison Computation Program");
 
-            int x1, x2, y1, y2;
-            Console.WriteLine("Please Enter X1:");
-            x1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter X2:");
-            x2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter Y1:");
-            y1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter Y2:");
-            y2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the points of First line");
+            int x1 = Convert.ToInt32(Console.ReadLine());
+            int x2 = Convert.ToInt32(Console.ReadLine());
+            int y1 = Convert.ToInt32(Console.ReadLine());
+            int y2 = Convert.ToInt32(Console.ReadLine());
 
-            double LineLength1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            Console.WriteLine($"Length of Line 1 is : {LineLength1}");
+            double line1 = Math.Pow((x2 - x1), 2);
+            double line2 = Math.Pow((y2 - y1), 2);
+            double length1 = line1 + line2;
+            double lengthOfLine1 = Math.Sqrt(length1);
 
-            int l1, l2, m1, m2;
 
-            Console.WriteLine("Please Enter l1:");
-            l1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter l2:");
-            l2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter m1:");
-            m1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please Enter m2:");
-            m2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the points of Second line");
+            int p1 = Convert.ToInt32(Console.ReadLine());
+            int p2 = Convert.ToInt32(Console.ReadLine());
+            int q1 = Convert.ToInt32(Console.ReadLine());
+            int q2 = Convert.ToInt32(Console.ReadLine());
 
-            double LineLength2 = Math.Sqrt(Math.Pow(l2 - l1, 2) + Math.Pow(m2 - m1, 2));
-            Console.WriteLine($"Length of the Line 2 is : {LineLength2}");
+            double line3 = Math.Pow((p2 - p1), 2);
+            double line4 = Math.Pow((q2 - q1), 2);
+            double length2 = line3 + line4;
+            double lengthOfLine2 = Math.Sqrt(length2);
 
-            if (int.Equals(LineLength1, LineLength2))
-            {
-                Console.WriteLine("Length Of the Two Lines are Equal");
-            }
+            if (lengthOfLine1 == lengthOfLine2)
+                Console.WriteLine("Both Lines  are the  Equal Length");
+            else if (lengthOfLine1 > lengthOfLine2)
+                Console.WriteLine("First line is greater than Second line");
             else
-            {
-                Console.WriteLine("Length Of the Two Lines are Not Equal");
-            }
+                Console.WriteLine("Second line is greater than First line");
+
+            Console.ReadLine();
+
+
+
 
         }
     }
